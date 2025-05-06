@@ -11,34 +11,68 @@
       color: #1a1a1a;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
+
     header {
       background-color: #0a0f3c;
       color: #ffd700;
-      padding: 20px;
+      padding: 30px 20px;
       text-align: center;
+      animation: fadeIn 2s ease;
     }
+
+    header h1 {
+      font-size: 2.8em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.3em;
+      margin: 10px 0 0 0;
+    }
+
     nav {
       background-color: #ffffff;
-      padding: 10px;
+      padding: 15px;
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: 30px;
       border-bottom: 2px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
+
     nav a {
       text-decoration: none;
       color: #0a0f3c;
       font-weight: bold;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
     }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
     .hero {
       background-color: #f7f7f7;
       text-align: center;
       padding: 60px 20px;
+      animation: slideIn 1s ease;
     }
-    .hero h1 {
+
+    .hero h1, .hero h2 {
       color: #0a0f3c;
+      margin-bottom: 10px;
     }
+
+    .hero p {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+
     .services {
       display: flex;
       flex-wrap: wrap;
@@ -46,14 +80,23 @@
       gap: 30px;
       padding: 40px 20px;
     }
+
     .service {
       background: #fff;
       border: 1px solid #ddd;
       padding: 20px;
       width: 300px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeIn 2s ease;
     }
+
+    .service:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
     footer {
       background-color: #0a0f3c;
       color: white;
@@ -61,6 +104,7 @@
       padding: 20px;
       font-size: 14px;
     }
+
     .whatsapp-button {
       display: inline-block;
       background-color: #25D366;
@@ -70,7 +114,13 @@
       text-decoration: none;
       font-weight: bold;
       margin-top: 15px;
+      transition: background-color 0.3s;
     }
+
+    .whatsapp-button:hover {
+      background-color: #1da851;
+    }
+
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
@@ -87,6 +137,22 @@
       text-decoration: none;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
       z-index: 100;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
   </style>
 </head>
@@ -95,15 +161,18 @@
     <h1>Proyectos Élite</h1>
     <p>Excelencia Académica a tu Alcance</p>
   </header>
+
   <nav>
     <a href="#servicios">Servicios</a>
     <a href="#contacto">Contacto</a>
     <a href="#sobre">Sobre Nosotros</a>
   </nav>
+
   <section class="hero">
     <h1>¿Necesitas ayuda con tu tesis, monografía o ensayo?</h1>
     <p>En Proyectos Élite, te brindamos apoyo académico de calidad profesional, adaptado a tus necesidades.</p>
   </section>
+
   <section id="servicios" class="services">
     <div class="service">
       <h3>Tesis Universitarias</h3>
@@ -118,17 +187,21 @@
       <p>Proyectos de investigación avanzados, con rigor académico y respaldo bibliográfico real.</p>
     </div>
   </section>
+
   <section id="contacto" class="hero">
     <h2>Contáctanos</h2>
-    <p>📩 proyectoselite.contacto@gmail.com</p>
+    <p>📩 <a href="mailto:proyectoselitedc@gmail.com">proyectoselitedc@gmail.com</a></p>
     <p>📱 WhatsApp: <a href="https://wa.me/593985952648" target="_blank" class="whatsapp-button">Chatear ahora</a></p>
     <p>Respuestas rápidas y presupuestos personalizados.</p>
   </section>
+
   <section id="sobre" class="hero">
     <h2>Sobre Nosotros</h2>
     <p>Somos un equipo de profesionales con experiencia en redacción académica, asesoría universitaria y metodologías de investigación. Tu éxito es nuestra prioridad.</p>
   </section>
+
   <a href="https://wa.me/593985952648" class="whatsapp-float" target="_blank">💬</a>
+
   <footer>
     &copy; 2025 Proyectos Élite. Todos los derechos reservados.
   </footer>
